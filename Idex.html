@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Planner</title>
+    <link rel="icon" type="image/x-icon" href="C:\Users\User\OneDrive\Escritorio\Personal\Web\favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="cabecera">
+<div class="logo-menu">  
+    <h1> <img src="C:\Users\User\OneDrive\Escritorio\Personal\Web\dumbbell-solid.svg" alt="Dumbbell" class="icono">FitPlanner</h1>
+    
+<nav>
+    <ul>
+   <li><a href="#">Inicio</a></li>
+   <li><a href="#">Rutinas</a></li>
+   <li><a href="#">Calendario</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+<main>
+    <div class="border">
+    <section>
+        <div class="contenido-central">
+    <h2>Planifica tu rutina semanal</h2>
+    <a href="#" class="btn-rutina">Añade rutina</a>
+    </div>
+    </section>
+
+    <section>
+      <div class="Border-calender">
+    <h3>Check diario</h3>
+    <!-- Aquí irá una gráfica o lista de progreso -->
+<div class="calendar">
+  <div class.week-header>
+    <span id="fecha-semana"></span> 
+
+    <script>
+  const hoy = new Date();
+  const diaSemana = hoy.getDay();
+
+  const lunes = new Date(hoy);
+lunes.setDate(hoy.getDate() - (diaSemana === 0 ? 6 : diaSemana - 1));
+
+const domingo = new Date(lunes);
+domingo.setDate(lunes.getDate() + 6);
+
+const meses = [
+  "enero", "febrero", "marzo", "abril", "mayo", "junio",
+  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+];
+
+const diaInicio = lunes.getDate();
+const diaFin = domingo.getDate();
+const mesNombre = meses[lunes.getMonth()];
+const anio = lunes.getFullYear();
+
+const textoSemana = `Semana del ${diaInicio} al ${diaFin} de ${mesNombre}, del ${anio}`;
+document.getElementById("fecha-semana").textContent = textoSemana;
+  
+</script>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Lun</th>
+        <th>Mar</th>
+        <th>Mié</th>
+        <th>Jue</th>
+        <th>Vie</th>
+        <th>Sáb</th>
+        <th>Dom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><button class="calendar-day">10</button></td>
+        <td><button class="calendar-day">11</button></td>
+        <td><button class="calendar-day">12</button></td>
+        <td><button class="calendar-day">13</button></td>
+        <td><button class="calendar-day">14</button></td>
+        <td><button class="calendar-day">15</button></td>
+        <td><button class="calendar-day">16</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</section> 
+</main>
+   
+
+</body>
+</html>
